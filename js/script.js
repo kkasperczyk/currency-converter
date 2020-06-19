@@ -1,4 +1,4 @@
-console.log("Hi all developers! Nice to see you here.");
+console.log("Hi all developers! Nice to see you here. Enjoy!");
 
 let amountField = document.querySelector(".js-form__amount");
 let convertFromField = document.querySelector(".js-convertFrom");
