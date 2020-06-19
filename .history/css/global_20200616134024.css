@@ -1,0 +1,15 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+::after,
+::before {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  background-color: hsl(297, 69%, 87%);
+  padding: 0 10px;
+}

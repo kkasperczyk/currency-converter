@@ -1,0 +1,9 @@
+.form__buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.form__button {
+    margin: 0 10px;
+    background-color: ;
+}

@@ -1,0 +1,6 @@
+.footer {
+    text-align: center;
+    border-top: 2px solid hsl(240, 100%, 50%);
+    color: hsl(240, 100%, 50%);
+    padding: 15px;
+}

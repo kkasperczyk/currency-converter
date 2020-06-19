@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/container.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <script defer src="js/script.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <title>Currency Converter</title>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="header__title">Currency Converter
+        </header>
+        <main class="main">
+            <form class="form js-form">
+                <p>
+                    <label>
+                        Amount:
+                        <input class="form__amount js-form__amount" type="number" name="amount" min="1" step="any"
+                            required placeholder="Enter amount to be converted">
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        From:
+                        <select class="js-convertFrom" required>
+                            <option value="pln">PLN</option>
+                            <option value="usd">USD</option>
+                            <option value="gbp">GBP</option>
+                            <option value="eur">EUR</option>
+                            <option value="chf">CHF</option>
+                        </select>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        To:
+                        <select class="js-convertTo" required>
+                            <option value="pln">PLN</option>
+                            <option value="usd" selected>USD</option>
+                            <option value="gbp">GBP</option>
+                            <option value="eur">EUR</option>
+                            <option value="chf">CHF</option>
+                        </select>
+                    </label>
+                </p>
+                <div class="form__buttons">
+                    <p>
+                        <button class="form__button js-form__button">Convert</button>
+                    </p>
+                    <p>
+                        <button class="form__button" type="reset">Reset</button>
+                    </p>
+                </div>
+            </form>
+            <p class="js-convertedValue">
+                Result
+            </p>
+        </main>
+        <footer class="footer">
+            <span>&copy Copyright Konrad Kasperczyk 2020 All Rights Reserved</span>
+        </footer>
+    </div>
+</body>
+
+</html>

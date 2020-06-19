@@ -1,0 +1,31 @@
+.form__labelText {
+    display: inline-block;
+    width: 100px;
+    margin-right: 5px;
+    color: rgb(29, 29, 119);
+}
+
+.form__buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.form__button {
+    margin: 0 10px;
+    background-color: hsl(240, 100%, 50%);
+    color: white;
+    padding: 10px 20px;
+    text-transform: lowercase;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 0.7px;
+    border: 2px solid transparent;
+    border-radius: 20px;
+}
+
+.form__button:hover {
+    background-color: white;
+    color: hsl(240, 100%, 50%);
+    border: 2px solid hsl(240, 100%, 50%);
+    cursor: pointer;
+}

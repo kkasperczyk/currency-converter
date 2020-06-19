@@ -1,0 +1,13 @@
+.header {
+    text-align: center;
+    border-bottom: 2px solid hsl(199, 88%, 60%);
+}
+
+.header__title {
+    color: hsl(240, 100%, 50%);
+    padding: 15px;
+    font-size: 40px;
+    letter-spacing: 0.7px;
+    margin: 0;
+    text-transform: lowercase;
+}

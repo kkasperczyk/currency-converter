@@ -1,0 +1,9 @@
+.header {
+    text-align: center;
+}
+
+.header__title {
+    color: hsl(240, 100%, 50%);
+    padding: 15px;
+    font-size: 15px;
+}
