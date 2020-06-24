@@ -1,144 +1,75 @@
-console.log("Hi all developers! Nice to see you here. Enjoy!");
+{
+  const welcome = () => {
+    console.log("Hi all developers! Nice to see you here. Enjoy!");
+  };
 
-let amountField = document.querySelector(".js-form__amount");
-let convertFromField = document.querySelector(".js-convertFrom");
-let convertToField = document.querySelector(".js-convertTo");
-let convertedValueField = document.querySelector(".js-convertedValue");
-let submitButton = document.querySelector(".js-form__button");
-let form = document.querySelector(".js-form");
+  const calculateResult = (convertFrom, convertTo, amount) => {
+    const eurRate = 4.4278;
+    const usdRate = 3.9058;
+    const gbpRate = 4.9384;
+    const chfRate = 4.1187;
+    let plnValue;
 
-amountField.focus();
+    switch (convertFrom) {
+      case "pln":
+        plnValue = +amount;
+        break;
+      case "eur":
+        plnValue = amount * eurRate;
+        break;
+      case "usd":
+        plnValue = amount * usdRate;
+        break;
+      case "gbp":
+        plnValue = amount * gbpRate;
+        break;
+      case "chf":
+        plnValue = amount * chfRate;
+        break;
+    }
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
+    switch (convertTo) {
+      case "pln":
+        return plnValue;
+      case "eur":
+        return plnValue / eurRate;
+      case "usd":
+        return plnValue / usdRate;
+      case "gbp":
+        return plnValue / gbpRate;
+      case "chf":
+        return plnValue / chfRate;
+    }
+  };
 
-  let amount = amountField.value;
-  let convertFrom = convertFromField.value;
-  let convertTo = convertToField.value;
-  let result;
+  const updateResultValue = (result) => {
+    const convertedValueField = document.querySelector(".js-convertedValue");
 
-  console.log(amount, convertFrom, convertTo);
+    convertedValueField.value = result.toFixed(2);
+  };
 
-  switch (convertFrom) {
-    case "pln":
-      switch (convertTo) {
-        case "pln":
-          result = amount * 1;
-          convertedValueField.value = result.toFixed(2);
-          break;
-        case "eur":
-          result = amount / 4.4278;
-          convertedValueField.value = result.toFixed(2);
-          break;
-        case "usd":
-          result = amount / 3.9058;
-          convertedValueField.value = result.toFixed(2);
-          break;
-        case "gbp":
-          result = amount / 4.9384;
-          convertedValueField.value = result.toFixed(2);
-          break;
-        case "chf":
-          result = amount / 4.1187;
-          convertedValueField.value = result.toFixed(2);
-          break;
-      }
-      break;
-    case "eur":
-      switch (convertTo) {
-        case "pln":
-          result = amount * 4.4278;
-          convertedValueField.value = result.toFixed(2);
-          break;
-        case "eur":
-          result = amount * 1;
-          convertedValueField.value = result.toFixed(2);
-          break;
-        case "usd":
-          result = amount * 1.1336;
-          convertedValueField.value = result.toFixed(2);
-          break;
-        case "gbp":
-          result = amount * 0.8966;
-          convertedValueField.value = result.toFixed(2);
-          break;
-        case "chf":
-          result = amount * 1.075;
-          convertedValueField.value = result.toFixed(2);
-          break;
-      }
-      break;
-    case "usd":
-      switch (convertTo) {
-        case "pln":
-          result = amount * 3.9058;
-          convertedValueField.value = result.toFixed(2);
-          break;
-        case "eur":
-          result = amount * 0.8821;
-          convertedValueField.value = result.toFixed(2);
-          break;
-        case "usd":
-          result = amount * 1;
-          convertedValueField.value = result.toFixed(2);
-          break;
-        case "gbp":
-          result = amount * 0.7909;
-          convertedValueField.value = result.toFixed(2);
-          break;
-        case "chf":
-          result = amount * 0.9483;
-          convertedValueField.value = result.toFixed(2);
-          break;
-      }
-      break;
-    case "gbp":
-      switch (convertTo) {
-        case "pln":
-          result = amount * 4.9384;
-          convertedValueField.value = result.toFixed(2);
-          break;
-        case "eur":
-          result = amount * 1.1153;
-          convertedValueField.value = result.toFixed(2);
-          break;
-        case "usd":
-          result = amount * 1.2644;
-          convertedValueField.value = result.toFixed(2);
-          break;
-        case "gbp":
-          result = amount * 1;
-          convertedValueField.value = result.toFixed(2);
-          break;
-        case "chf":
-          result = amount * 1.199;
-          convertedValueField.value = result.toFixed(2);
-          break;
-      }
-      break;
-    case "chf":
-      switch (convertTo) {
-        case "pln":
-          result = amount * 4.1187;
-          convertedValueField.value = result.toFixed(2);
-          break;
-        case "eur":
-          result = amount * 0.9302;
-          convertedValueField.value = result.toFixed(2);
-          break;
-        case "usd":
-          result = amount * 1.0545;
-          convertedValueField.value = result.toFixed(2);
-          break;
-        case "gbp":
-          result = amount * 0.834;
-          convertedValueField.value = result.toFixed(2);
-          break;
-        case "chf":
-          result = amount * 1;
-          convertedValueField.value = result.toFixed(2);
-          break;
-      }
-      break;
-  }
-});
+  const onFormSubmit = (event) => {
+    event.preventDefault();
+
+    const amountField = document.querySelector(".js-form__amount");
+    const convertFromField = document.querySelector(".js-convertFrom");
+    const convertToField = document.querySelector(".js-convertTo");
+
+    const amount = amountField.value;
+    const convertFrom = convertFromField.value;
+    const convertTo = convertToField.value;
+
+    const result = calculateResult(convertFrom, convertTo, amount);
+
+    updateResultValue(result);
+  };
+
+  const init = () => {
+    const form = document.querySelector(".js-form");
+
+    form.addEventListener("submit", onFormSubmit);
+    welcome();
+  };
+
+  init();
+}
